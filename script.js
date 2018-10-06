@@ -20,8 +20,7 @@ function filterNsfw(listing) {
         continue;
       }
   return filtered;
-}
-;
+};
 
 var items = [];
 var guessed = true;
@@ -216,9 +215,9 @@ function guess() {
         document.getElementById("answers").innerHTML = "<span style=\"color:red\">Wrong! Answer is /r/"+items[0]+"</span>";
         document.getElementById("score").innerHTML = "Score: "+score;
 // scoring fix part 2
+      } else {
+        document.getElementById("answers").innerHTML = "<span style=\"color:red\">Wrong! ("+(4-strike_count)+" tries left)</span>";
       }
-      else
-      document.getElementById("answers").innerHTML = "<span style=\"color:red\">Wrong! ("+(4-strike_count)+" tries left)</span>";
     }
   }
   document.getElementById("guess").value = "";
@@ -226,7 +225,8 @@ function guess() {
     setTimeout(function() {getContent();},2000);
   }
 }
-;function fetchContent(name) {
+
+function fetchContent(name) {
   url = 'https://www.reddit.com/r/';
   url = url.concat(name, '/top.json?sort=top&t=month');
 
